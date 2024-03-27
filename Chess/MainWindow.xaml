@@ -1,0 +1,19 @@
+﻿<Window x:Class="Chess.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chess"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="438" Width="416" ResizeMode="CanMinimize" MouseMove="Window_MouseMove" >
+    <Grid>
+        <Image Name="Board" Source="Assets/board.png" Stretch="Fill"/>
+        <Image Name="WhiteKing" Source="Assets/WhiteKing.png" Margin="200,350,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Height="50" MouseDown="WhiteKing_MouseDown" MouseUp="WhiteKing_MouseUp" Cursor="Hand"/>
+        <Image Name="WhitePawn" Source="Assets/WhitePawn.png" Margin="200,300,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Height="50"  MouseDown="WhitePawn_MouseDown" MouseUp="WhitePawn_MouseUp" Cursor="Hand"/>
+        <Image Name="MyBnFigure" Source="Assets/BlackKnight.png" Margin="300,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Height="50"/>
+        <Image Name="MyWbFigure" Source="Assets/BlackBishop.png" Margin="250,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Height="50" RenderTransformOrigin="-0.063,0.547"/>
+        <Image Name="BlackRook" Source="Assets/BlackRook.png" Margin="350,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Height="50"/>
+        <Image Name="BlackKing" Source="Assets/BlackKing.png" Margin="200,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Height="50"/>
+        <Image x:Name="imageControl" Width="438" Height="416"/>
+    </Grid>
+</Window>
