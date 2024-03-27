@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Mikayel\\Desktop\\Chess\\",
+  "WorkspaceRootPath": "C:\\Users\\Mikayel\\Desktop\\C-Sharp-Task11\\Chess\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D51F83A7-953C-46E5-B985-DAA88A6E4B20}|Chess.csproj|c:\\users\\mikayel\\desktop\\chess\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D51F83A7-953C-46E5-B985-DAA88A6E4B20}|Chess.csproj|c:\\users\\mikayel\\desktop\\c-sharp-task11\\chess\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D51F83A7-953C-46E5-B985-DAA88A6E4B20}|Chess.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D51F83A7-953C-46E5-B985-DAA88A6E4B20}|Chess.csproj|C:\\Users\\Mikayel\\Desktop\\Chess\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{D51F83A7-953C-46E5-B985-DAA88A6E4B20}|Chess.csproj|C:\\Users\\Mikayel\\Desktop\\C-Sharp-Task11\\Chess\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{D51F83A7-953C-46E5-B985-DAA88A6E4B20}|Chess.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Mikayel\\Desktop\\Chess\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Mikayel\\Desktop\\C-Sharp-Task11\\Chess\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Mikayel\\Desktop\\Chess\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Mikayel\\Desktop\\C-Sharp-Task11\\Chess\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-03-21T17:07:14.206Z",
@@ -37,11 +37,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Mikayel\\Desktop\\Chess\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Mikayel\\Desktop\\C-Sharp-Task11\\Chess\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Mikayel\\Desktop\\Chess\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Mikayel\\Desktop\\C-Sharp-Task11\\Chess\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAAAPEAAAAXAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAABUAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-21T17:07:14.111Z",
               "EditorCaption": ""

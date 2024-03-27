@@ -33,7 +33,7 @@ namespace Chess
         bool Random_Move_V = false, King_V, Bishop_V = false, Rook_V = false, Bishop_V_second = false, Rook_V_second = false, Bishop_V_third = false, Rook_V_third = false, White_Pawn = false, White_King = false;
         double DeltaX, DeltaY;
         int WhitePawn_Position_Y = 6, WhitePawn_Position_X = 4, WhiteKing_Position_Y = 7, WhiteKing_Position_X = 4;
-        int BlackKnight_Position_X = 0, BlackKnight_Position_Y = 6, BlackBishop_Position_Y = 0, BlackBishop_Position_X = 5, BlackRook_Position_Y = 0, BlackRook_Position_X = 7, BlackKing_Position_Y = 0, BlackKing_Position_X = 4, BlackKnight_Position_Xtemp = 0, BlackKnight_Position_Ytemp = 6, BlackBishop_Position_Ytemp = 0, BlackBishop_Position_Xtemp = 5, BlackRook_Position_Ytemp = 0, BlackRook_Position_Xtemp = 7;
+        int BlackKnight_Position_Y = 0, BlackKnight_Position_X = 6, BlackBishop_Position_Y = 0, BlackBishop_Position_X = 5, BlackRook_Position_Y = 0, BlackRook_Position_X = 7, BlackKing_Position_Y = 0, BlackKing_Position_X = 4, BlackKnight_Position_Ytemp = 0, BlackKnight_Position_Xtemp = 6, BlackBishop_Position_Ytemp = 0, BlackBishop_Position_Xtemp = 5, BlackRook_Position_Ytemp = 0, BlackRook_Position_Xtemp = 7;
 
         SoundPlayer player = new SoundPlayer(Properties.Resources.step);
         SoundPlayer gameover = new SoundPlayer(Properties.Resources.game);
@@ -209,21 +209,21 @@ namespace Chess
         }
 
 
-        int Knight(int BlackKnight_Position_Xtemp, int BlackKnight_Position_Ytemp)
+        int Knight(int BlackKnight_Position_Ytemp, int BlackKnight_Position_Xtemp)
         {
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    if (((Math.Abs(BlackKnight_Position_Xtemp - i) == 2 && Math.Abs(BlackKnight_Position_Ytemp - j) == 1) || (Math.Abs(BlackKnight_Position_Xtemp - i) == 1 && Math.Abs(BlackKnight_Position_Ytemp - j) == 2)) && ChessBoard[i, j] == 1000)
+                    if (((Math.Abs(BlackKnight_Position_Ytemp - i) == 2 && Math.Abs(BlackKnight_Position_Xtemp - j) == 1) || (Math.Abs(BlackKnight_Position_Ytemp - i) == 1 && Math.Abs(BlackKnight_Position_Xtemp - j) == 2)) && ChessBoard[i, j] == 1000)
                     {
-                        if (ChessBoard[BlackKnight_Position_Xtemp, BlackKnight_Position_Ytemp] >= 0)
+                        if (ChessBoard[BlackKnight_Position_Ytemp, BlackKnight_Position_Xtemp] >= 0)
                         {
-                            ChessBoard[BlackKnight_Position_X, BlackKnight_Position_Y] = 0;
+                            ChessBoard[BlackKnight_Position_Y, BlackKnight_Position_X] = 0;
                             BlackKnight_Position_X = BlackKnight_Position_Xtemp;
                             BlackKnight_Position_Y = BlackKnight_Position_Ytemp;
-                            ChessBoard[BlackKnight_Position_X, BlackKnight_Position_Y] -= 30;
-                            MyBnFigure.Margin = new Thickness(BlackKnight_Position_Ytemp * 50, BlackKnight_Position_Xtemp * 50, 0, 0);
+                            ChessBoard[BlackKnight_Position_Y, BlackKnight_Position_X] -= 30;
+                            MyBnFigure.Margin = new Thickness(BlackKnight_Position_Xtemp * 50, BlackKnight_Position_Ytemp * 50, 0, 0);
                            
                             return 11;
                         }
@@ -393,14 +393,14 @@ namespace Chess
                             return;
                         }
                     }
-                    else if (((Math.Abs(BlackKnight_Position_X - i) == 2 && Math.Abs(BlackKnight_Position_Y - j) == 1) || (Math.Abs(BlackKnight_Position_X - i) == 1 && Math.Abs(BlackKnight_Position_Y - j) == 2)) && ChessBoard[i, j] == 1000)
+                    else if (((Math.Abs(BlackKnight_Position_Y - i) == 2 && Math.Abs(BlackKnight_Position_X - j) == 1) || (Math.Abs(BlackKnight_Position_Y - i) == 1 && Math.Abs(BlackKnight_Position_X - j) == 2)) && ChessBoard[i, j] == 1000)
                     {
-                        ChessBoard[BlackKnight_Position_X, BlackKnight_Position_Y] = 0;
-                        BlackKnight_Position_X = i;
-                        BlackKnight_Position_Y = j;
-                        ChessBoard[BlackKnight_Position_X, BlackKnight_Position_Y] -= 30;
+                        ChessBoard[BlackKnight_Position_Y, BlackKnight_Position_X] = 0;
+                        BlackKnight_Position_Y = i;
+                        BlackKnight_Position_X = j;
+                        ChessBoard[BlackKnight_Position_Y, BlackKnight_Position_X] -= 30;
                         MyBnFigure.Margin = new Thickness(j * 50, i * 50, 0, 0);
-                        Utel(ChessBoard, BlackKnight_Position_X, BlackKnight_Position_Y);
+                        Utel(ChessBoard, BlackKnight_Position_Y, BlackKnight_Position_X);
                         return;
                     }
 
@@ -498,7 +498,7 @@ namespace Chess
                         }
                     }
 
-                    if (((Math.Abs(BlackKnight_Position_Xtemp - i) == 2 && Math.Abs(BlackKnight_Position_Ytemp - j) == 1) || (Math.Abs(BlackKnight_Position_Xtemp - i) == 1 && Math.Abs(BlackKnight_Position_Ytemp - j) == 2)) && ChessBoard[i, j] >= 0)
+                    if (((Math.Abs(BlackKnight_Position_Ytemp - i) == 2 && Math.Abs(BlackKnight_Position_Xtemp - j) == 1) || (Math.Abs(BlackKnight_Position_Ytemp - i) == 1 && Math.Abs(BlackKnight_Position_Xtemp - j) == 2)) && ChessBoard[i, j] >= 0)
                     {
                         if (Knight(i, j) == 11)
                         {
@@ -528,7 +528,7 @@ namespace Chess
                     ChessBoard[BlackKnight_Position_Y, BlackKnight_Position_X] -= 30;
                     MyBnFigure.Margin = new Thickness(random_X * 50, random_Y * 50, 0, 0);
                     Random_Move_V = true;
-                    Utel(ChessBoard, BlackKnight_Position_X, BlackKnight_Position_Y);
+                    Utel(ChessBoard, BlackKnight_Position_Y, BlackKnight_Position_X);
                     return;
                 }
                 else if (Math.Abs(BlackBishop_Position_Y - random_Y) == Math.Abs(BlackBishop_Position_X - random_X) && ChessBoard[random_Y, random_X] >= 0)
@@ -616,34 +616,7 @@ namespace Chess
                         return;
                     }
                 }
-                else if (((Math.Abs(random_X - BlackKing_Position_X) == 1 && Math.Abs(random_Y - BlackKing_Position_Y) == 1) || (Math.Abs(random_X - BlackKing_Position_X) == 0 && Math.Abs(random_Y - BlackKing_Position_Y) == 1) || (Math.Abs(random_X - BlackKing_Position_X) == 1 && Math.Abs(random_Y - BlackKing_Position_Y) == 0)) && ChessBoard[random_Y, random_X] >= 0)
-                {
-                    King_V = false;
-                    for (int i = random_Y - 1; i < random_Y + 2; i++)
-                    {
-                        for (int j = random_X - 1; j < random_X + 2; j++)
-                        {
-                            if (i > -1 && i < 8 && j > -1 && j < 8)
-                            {
-                                if (ChessBoard[i, j] == -1000)
-                                {
-                                    King_V = true;
-                                }
-                            }
-                        }
-                    }
-                    if (!King_V && ChessBoard[random_Y + 1, random_X + 1] != 10 && ChessBoard[random_Y + 1, random_X - 1] != 10)
-                    {
-                        ChessBoard[BlackKing_Position_Y, BlackKing_Position_X] = 0;
-                        BlackKing_Position_Y = random_Y;
-                        BlackKing_Position_X = random_X;
-                        ChessBoard[BlackKing_Position_Y, BlackKing_Position_X] -= 50;
-                        BlackKing.Margin = new Thickness(random_X * 50, random_Y * 50, 0, 0);
-                        Random_Move_V = true;
-                        Utel(ChessBoard, BlackKing_Position_Y, BlackKing_Position_X);
-                        return;
-                    }
-                }
+                
             }
         }
     }
