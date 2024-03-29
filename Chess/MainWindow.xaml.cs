@@ -33,7 +33,7 @@ namespace Chess
         bool Random_Move_V = false, King_V, Bishop_V = false, Rook_V = false, Bishop_V_second = false, Rook_V_second = false, Bishop_V_third = false, Rook_V_third = false, White_Pawn = false, White_King = false;
         double DeltaX, DeltaY;
         int WhitePawn_Position_Y = 6, WhitePawn_Position_X = 4, WhiteKing_Position_Y = 7, WhiteKing_Position_X = 4;
-        int BlackKnight_Position_Y = 0, BlackKnight_Position_X = 6, BlackBishop_Position_Y = 0, BlackBishop_Position_X = 5, BlackRook_Position_Y = 0, BlackRook_Position_X = 7, BlackKing_Position_Y = 0, BlackKing_Position_X = 4, BlackKnight_Position_Ytemp = 0, BlackKnight_Position_Xtemp = 6, BlackBishop_Position_Ytemp = 0, BlackBishop_Position_Xtemp = 5, BlackRook_Position_Ytemp = 0, BlackRook_Position_Xtemp = 7;
+        int top = 0, left = 0, BlackKnight_Position_Y = 0, BlackKnight_Position_X = 6, BlackBishop_Position_Y = 0, BlackBishop_Position_X = 5, BlackRook_Position_Y = 0, BlackRook_Position_X = 7, BlackKing_Position_Y = 0, BlackKing_Position_X = 4, BlackKnight_Position_Ytemp = 0, BlackKnight_Position_Xtemp = 6, BlackBishop_Position_Ytemp = 0, BlackBishop_Position_Xtemp = 5, BlackRook_Position_Ytemp = 0, BlackRook_Position_Xtemp = 7;
 
         SoundPlayer player = new SoundPlayer(Properties.Resources.step);
         SoundPlayer gameover = new SoundPlayer(Properties.Resources.game);
@@ -64,6 +64,11 @@ namespace Chess
             {
                 StackPanel.SetZIndex(WhiteKing, 1);
                 StackPanel.SetZIndex(WhitePawn, 0);
+                if (!White_King)
+                {
+                    top = (int)WhiteKing.Margin.Top;
+                    left = (int)WhiteKing.Margin.Left;
+                }
                 White_King = true;
                 DeltaX = e.GetPosition(this).X - WhiteKing.Margin.Left;
                 DeltaY = e.GetPosition(this).Y - WhiteKing.Margin.Top;
@@ -76,14 +81,21 @@ namespace Chess
         void WhiteKing_MouseUp(object sender, MouseButtonEventArgs e)
         {
             White_King = false;
-            
-            WhiteKing.Margin = new Thickness((int)(WhiteKing.Margin.Left + 25) / 50 * 50, (int)(WhiteKing.Margin.Top + 25) / 50 * 50, 0, 0);
-            ChessBoard[(int)(WhiteKing.Margin.Top + 25) / 50, (int)(WhiteKing.Margin.Left + 25) / 50] = 1000;
-            ChessBoard[WhiteKing_Position_Y, WhiteKing_Position_X] = 0;
-            WhiteKing_Position_Y = (int)(WhiteKing.Margin.Top + 25) / 50;
-            WhiteKing_Position_X = (int)(WhiteKing.Margin.Left + 25) / 50;
-            //Implementing point 1
-            Criteria_first();
+            if ((top - (int)(WhiteKing.Margin.Top + 25) / 50 * 50 == 50 || top - (int)(WhiteKing.Margin.Top + 25) / 50 * 50 == -50 || top - (int)(WhiteKing.Margin.Top + 25) / 50 * 50 == 0) && (left - (int)(WhiteKing.Margin.Left + 25) / 50 * 50 == -50 || left - (int)(WhiteKing.Margin.Left + 25) / 50 * 50 == 0 || left - (int)(WhiteKing.Margin.Left + 25) / 50 * 50 == 50))
+            {
+                WhiteKing.Margin = new Thickness((int)(WhiteKing.Margin.Left + 25) / 50 * 50, (int)(WhiteKing.Margin.Top + 25) / 50 * 50, 0, 0);
+                ChessBoard[(int)(WhiteKing.Margin.Top + 25) / 50, (int)(WhiteKing.Margin.Left + 25) / 50] = 1000;
+                ChessBoard[WhiteKing_Position_Y, WhiteKing_Position_X] = 0;
+                WhiteKing_Position_Y = (int)(WhiteKing.Margin.Top + 25) / 50;
+                WhiteKing_Position_X = (int)(WhiteKing.Margin.Left + 25) / 50;
+                //Implementing point 1
+                Criteria_first();
+            }
+            else
+            {
+                WhiteKing.Margin = new Thickness(left, top, 0, 0);
+            }
+
 
         }
         void WhitePawn_MouseDown(object sender, MouseButtonEventArgs e)
@@ -92,6 +104,11 @@ namespace Chess
             {
                 StackPanel.SetZIndex(WhitePawn, 1);
                 StackPanel.SetZIndex(WhiteKing, 0);
+                if (!White_Pawn)
+                {
+                    top = (int)WhitePawn.Margin.Top;
+                    left = (int)WhitePawn.Margin.Left;
+                }
                 White_Pawn = true;
                 DeltaX = e.GetPosition(this).X - WhitePawn.Margin.Left;
                 DeltaY = e.GetPosition(this).Y - WhitePawn.Margin.Top;
@@ -102,13 +119,22 @@ namespace Chess
         void WhitePawn_MouseUp(object sender, MouseButtonEventArgs e)
         {
             White_Pawn = false;
-            WhitePawn.Margin = new Thickness((int)(WhitePawn.Margin.Left + 25) / 50 * 50, (int)(WhitePawn.Margin.Top + 25) / 50 * 50, 0, 0);
-            ChessBoard[(int)(WhitePawn.Margin.Top + 25) / 50, (int)(WhitePawn.Margin.Left + 25) / 50] = 10;
-            ChessBoard[WhitePawn_Position_Y, WhitePawn_Position_X] = 0;
-            WhitePawn_Position_Y = (int)(WhitePawn.Margin.Top + 25) / 50;
-            WhitePawn_Position_X = (int)(WhitePawn.Margin.Left + 25) / 50;
-            //Implementing point 1
-            Criteria_first();
+            if (top - (int)(WhitePawn.Margin.Top + 25) / 50 * 50 == 50 && ((left - (int)(WhitePawn.Margin.Left + 25) / 50 * 50 == 0) || (left - (int)(WhitePawn.Margin.Left + 25) / 50 * 50 == 50 && ChessBoard[WhitePawn_Position_Y - 1, WhitePawn_Position_X - 1] != 0) || (left - (int)(WhitePawn.Margin.Left + 25) / 50 * 50 == -50 && ChessBoard[WhitePawn_Position_Y - 1, WhitePawn_Position_X + 1] != 0)))
+            {
+                WhitePawn.Margin = new Thickness((int)(WhitePawn.Margin.Left + 25) / 50 * 50, (int)(WhitePawn.Margin.Top + 25) / 50 * 50, 0, 0);
+                ChessBoard[(int)(WhitePawn.Margin.Top + 25) / 50, (int)(WhitePawn.Margin.Left + 25) / 50] = 10;
+                ChessBoard[WhitePawn_Position_Y, WhitePawn_Position_X] = 0;
+                WhitePawn_Position_Y = (int)(WhitePawn.Margin.Top + 25) / 50;
+                WhitePawn_Position_X = (int)(WhitePawn.Margin.Left + 25) / 50;
+                //Implementing point 1
+                Criteria_first();
+            }
+            else
+            {
+                WhitePawn.Margin = new Thickness(left, top, 0, 0);
+            }
+            
+            
 
         }
 
